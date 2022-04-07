@@ -4,7 +4,7 @@ import { Passenger } from '../passenger';
 import { PassengerService } from '../passenger.service';
 
 @Component({
-  selector: 'app-passengerlist',
+  selector: 'appgit rebase-passengerlist',
   templateUrl: './passengerlist.component.html',
   styleUrls: ['./passengerlist.component.css']
 })
