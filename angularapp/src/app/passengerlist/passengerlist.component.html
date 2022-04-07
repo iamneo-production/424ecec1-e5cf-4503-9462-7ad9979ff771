@@ -1,0 +1,39 @@
+<p>passengerlist works!</p>
+<app-userdashboard></app-userdashboard>
+<div class="container">
+    <h2>Passenger List <button type="button" class="btn btn-warning"(click)="goBack()">Back</button>&nbsp;</h2>
+    <p></p>            
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+          <th>User Reference</th>
+          <th>Vehicle Reference</th>
+          <th>Passenger ID</th>
+          <th>Passenger Name</th>
+          <th>Passenger Age</th>
+          <th>Passenger Mobile</th>
+          <th>Passport Number</th>
+          <th>Aadhar Number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let passenger of _passengerlist" >
+          <td>{{passenger.userreferenceId}}</td>
+          <td>{{passenger.vehiclereferenceId}}</td>
+          <td>{{passenger.id}}</td>
+          <td>{{passenger.fullName}}</td>
+          <td>{{passenger.age}}</td>
+          <td>{{passenger.mobile}}</td>
+          <td>{{passenger.passportNumber}}</td>
+          <td>{{passenger.aadharNumber}}</td>
+          <td>
+              <button type="button" class="btn btn-primary"(click)="goToEditPassenger(passenger.id)">Edit</button>&nbsp;
+              <button type="button" class="btn btn-danger" (click)="deletePassenger(passenger.id)">Delete</button>&nbsp;
+              <button type="button" class="btn btn-success" (click)="goToBook(passenger.vehiclereferenceId)">Book</button>&nbsp;
+          </td>
+         
+        </tr>
+      </tbody>
+    </table>
+  
