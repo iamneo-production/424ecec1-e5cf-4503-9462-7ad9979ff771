@@ -7,21 +7,27 @@
           <div class="card">
               <div class="text-center">
                   <h1>SignUp</h1>
-                  <h4>Regester Yourself</h4>
+                  <h4>Register Yourself</h4>
               </div>
               <form #signupForm="ngForm" (ngSubmit)="signup()">
                 <small class="text-danger">{{msg}}</small>
                     <div class="form-group">
                         <label for="userName">User Name</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="User Name" name="userName" [(ngModel)]="user.userName" required #userName="ngModel"
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="User Name" name="userName" [(ngModel)]="user.userName" required #userName="ngModel"pattern="^(?=.{5,15}$)(?![_.])(?![0-9])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
                         [class.is-invalid]="userName.invalid && userName.touched"> 
-                        <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">*Username is Required!</small>
+                        <div *ngIf="userName.errors && (userName.invalid && userName.touched)">
+                          <small class="text-danger" *ngIf="userName.errors?.['required']">*UserName is Required!</small> 
+                          <small class="text-danger" *ngIf="userName.errors?.['pattern']">*Enter valid UserName</small>   
+                        </div>  
                     </div><br>
                     <div class="form-group">
                         <label for="mobile">Mobile Number</label>
-                        <input type="text" class="form-control" for="mobile" placeholder="Mobile Number" name="mobile" [(ngModel)]="user.mobile" required #mobile="ngModel"
+                        <input type="text" class="form-control" for="mobile" placeholder="Mobile Number" name="mobile" [(ngModel)]="user.mobile" required  pattern="^[6-9]\d{9}$" #mobile="ngModel"
                         [class.is-invalid]="mobile.invalid && mobile.touched"> 
-                        <small class="text-danger" [class.d-none]="mobile.valid || mobile.untouched">*Mobile Number is Required!</small>                  
+                        <div *ngIf="mobile.errors && (mobile.invalid && mobile.touched)">
+                          <small class="text-danger" *ngIf="mobile.errors?.['required']">*Mobile Number is Required!</small> 
+                          <small class="text-danger" *ngIf="mobile.errors?.['pattern']">*Enter valid Mobile Number</small>                 
+                        </div>
                     </div><br>
                     <div class="form-group">
                       <label for="email">Email address</label>
@@ -34,9 +40,12 @@
                     </div><br>
                     <div class="form-group">
                       <label for="password">Password</label>
-                      <input type="password" class="form-control" for="password" placeholder="Password" name="password" [(ngModel)]="user.password"  required #password="ngModel"
+                      <input type="password" class="form-control" for="password" placeholder="Password" name="password" [(ngModel)]="user.password" required pattern="((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})" required #password="ngModel"
                       [class.is-invalid]="password.invalid && password.touched"> 
-                      <small class="text-danger" [class.d-none]="password.valid || password.untouched">*Password is Required!</small>           
+                      <div *ngIf="password.errors && (password.invalid && password.touched)">
+                         <small class="text-danger"  *ngIf="password.errors?.['required']">*Password is Required!</small>      
+                         <small class="text-danger" *ngIf="password.errors?.['pattern']">*Enter valid Password</small>     
+                    </div>
                     </div><br>
                     <div class="form-group">
                       <label for="password">Confirm Password</label>
