@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SignupService } from '../signup.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-getuser',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetuserComponent implements OnInit {
 
-  constructor() { }
+  user=new User();
+  constructor(private route:Router,private service:SignupService, private activatedRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    let email=String(this.activatedRoute.snapshot.paramMap.get('email'));
+    this.service.fetchUserByEmailFromRemote(email).subscribe(
+      data=>{
+          console.log("data recieved");
+          this.user=data;
+      },
+      error=>console.log("exception occured")
+
+    )
+  }
+
+  goToEditUser(){
+    let email2=localStorage.getItem('email');
+    this.route.navigate(['/useredit',email2]);
   }
 
 }
