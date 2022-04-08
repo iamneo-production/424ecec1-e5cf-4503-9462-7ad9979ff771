@@ -1,1 +1,41 @@
-<p>useredit works!</p>
+<app-userdashboard></app-userdashboard>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Update User</h1>
+                </div>
+                <form #updateuserform="ngForm" (ngSubmit)="updateformsubmit()">
+                    
+                    <div class="form-group">
+                        <label for="id">User Name</label>
+                        <input type="text" class="form-control" placeholder="User Name" name="username" required [(ngModel)]="user.userName" #username="ngModel" pattern="^(?=.{5,15}$)(?![_.])(?![0-9])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
+                        [class.is-invalid]="username.invalid && username.touched" >
+                        <div *ngIf="username.errors && (username.invalid && username.touched)">
+                            <small class="text-danger" *ngIf="username.errors?.['required']">*UserName Number is Required!</small> 
+                            <small class="text-danger" *ngIf="username.errors?.['pattern']">*Enter valid UserName</small>                 
+                          </div>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Mobile</label>
+                        <input type="text" class="form-control" placeholder="Mobile" name="mobile" required [(ngModel)]="user.mobile" pattern="^[6-9]\d{9}$" #mobile="ngModel"
+                        [class.is-invalid]="mobile.invalid && mobile.touched">
+                        <div *ngIf="mobile.errors && (mobile.invalid && mobile.touched)">
+                            <small class="text-danger" *ngIf="mobile.errors?.['required']">*Mobile Number is Required!</small> 
+                            <small class="text-danger" *ngIf="mobile.errors?.['pattern']">*Enter valid Mobile Number</small>                 
+                          </div>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Email</label>
+                        <input type="text" class="form-control" placeholder="Email" name="email" required [(ngModel)]="user.email" disabled>                        
+                    </div><br>
+
+                    <button type="submit" [disabled]="!updateuserform.valid" class="btn btn-success" (click)="updateformsubmit()">Update</button>&nbsp;
+                    <button type="submit" class="btn btn-warning" (click)="goToMyProfile()">Back</button>                  
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
