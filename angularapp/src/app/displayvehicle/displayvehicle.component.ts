@@ -1,15 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Vehicle } from '../vehicle';
+import { VehicleService } from '../vehicle.service';
 
 @Component({
-  selector: 'app-displayvehicle',
-  templateUrl: './displayvehicle.component.html',
-  styleUrls: ['./displayvehicle.component.css']
+  selector: 'app-displayvehicles',
+  templateUrl: './displayvehicles.component.html',
+  styleUrls: ['./displayvehicles.component.css']
 })
-export class DisplayvehicleComponent implements OnInit {
+export class DisplayvehiclesComponent implements OnInit
+{
 
-  constructor() { }
+  _vehiclelist:Vehicle[];
+  constructor(private service:VehicleService,private route:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit()
+  {                                               //springlink
+    this.service.fetchVehicleListFromRemote().subscribe(
+      data=>
+      {
+                console.log("response recieved");
+                this._vehiclelist=data;
+            },
+      error=>console.log("exception occured")
+    )
+  }
+
+  goToBookVehicle(id:number)//component
+  {
+    this.route.navigate(['/getvehicle',id]);
   }
 
 }
