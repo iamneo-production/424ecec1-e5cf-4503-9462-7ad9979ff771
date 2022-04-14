@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Customer Feedback Form</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  </head>
+  <body>
+    <div class="testbox">
+      <form #addreviewform="ngForm" (ngSubmit)="addReview()">
+        <h1>Customer Feedback Form</h1>
+        <p>Please take a few minutes to give us feedback about our service by filling in this short Customer Feedback Form. We are conducting this research in order to measure your level of satisfaction with the quality of our service. We thank you for your participation.</p>
+        <hr>
+        <h3>Overall experience with our service</h3>
+        <h3> UserId </h3><td><input type="text" name="id" placeholder="ID" [(ngModel)]="review.id" [value]="this.review.id" disabled>
+            <br><br>
+        <table>
+            <tr>
+            <th class="first-col">Stars Based on Service </th>
+            <th>5</th>
+            <th>4</th>
+            <th>3</th>
+            <th>2</th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <h6><td class="first-col">How would you rate your overall experience with our service?</td></h6>
+            <td><input type="radio" value="5" name="overallExperience" [(ngModel)]="review.overallExperience" #overallExperience="ngModel"></td>
+            <td><input type="radio" value="4" name="overallExperience" [(ngModel)]="review.overallExperience" #overallExperience="ngModel"></td>
+            <td><input type="radio" value="3" name="overallExperience" [(ngModel)]="review.overallExperience" #overallExperience="ngModel"></td>
+            <td><input type="radio" value="2" name="overallExperience" [(ngModel)]="review.overallExperience" #overallExperience="ngModel"></td>
+            <td><input type="radio" value="1" name="overallExperience" [(ngModel)]="review.overallExperience" #overallExperience="ngModel"></td>
+          </tr>
+          <tr>
+            <h6><td class="first-col">How satisfied are you with the comprehensiveness of our offer?</td></h6>
+            <td><input type="radio" value="5" name="offer" [(ngModel)]="review.offer" #offer="ngModel"></td>
+            <td><input type="radio" value="4" name="offer" [(ngModel)]="review.offer" #offer="ngModel"></td>
+            <td><input type="radio" value="3" name="offer" [(ngModel)]="review.offer" #offer="ngModel"></td>
+            <td><input type="radio" value="2" name="offer" [(ngModel)]="review.offer" #offer="ngModel"></td>
+            <td><input type="radio" value="1" name="offer" [(ngModel)]="review.offer" #offer="ngModel"></td>
+          </tr>
+          <tr>
+            <h6><td class="first-col">How satisfied are you with the timeliness of our experiance ?</td></h6>
+            <td><input type="radio" value="5" name="timeliness" [(ngModel)]="review.timeliness" #timeliness="ngModel"></td>
+            <td><input type="radio" value="4" name="timeliness" [(ngModel)]="review.timeliness" #timeliness="ngModel"></td>
+            <td><input type="radio" value="3" name="timeliness" [(ngModel)]="review.timeliness" #timeliness="ngModel"></td>
+            <td><input type="radio" value="2" name="timeliness" [(ngModel)]="review.timeliness" #timeliness="ngModel"></td>
+            <td><input type="radio" value="1" name="timeliness" [(ngModel)]="review.timeliness" #timeliness="ngModel"></td>
+          </tr>
+          <tr>
+            <h6><td class="first-col">How satisfied are you with the customer support?</td></h6>
+            <td><input type="radio" value="5" name="customerSupport" [(ngModel)]="review.customerSupport" #customerSupport="ngModel"></td>
+            <td><input type="radio" value="4" name="customerSupport" [(ngModel)]="review.customerSupport" #customerSupport="ngModel"></td>
+            <td><input type="radio" value="3" name="customerSupport" [(ngModel)]="review.customerSupport" #customerSupport="ngModel"></td>
+            <td><input type="radio" value="2" name="customerSupport" [(ngModel)]="review.customerSupport" #customerSupport="ngModel"></td>
+            <td><input type="radio" value="1" name="customerSupport" [(ngModel)]="review.customerSupport" #customerSupport="ngModel"></td>
+          </tr>
+          <tr>
+            <h6><td class="first-col">Would you recommend our service to other people?</td></h6>
+            <td><input type="radio" value="5" name="recommend" [(ngModel)]="review.recommend" #recommend="ngModel"></td>
+            <td><input type="radio" value="4" name="recommend" [(ngModel)]="review.recommend" #recommend="ngModel"></td>
+            <td><input type="radio" value="3" name="recommend" [(ngModel)]="review.recommend" #recommend="ngModel"></td>
+            <td><input type="radio" value="2" name="recommend" [(ngModel)]="review.recommend" #recommend="ngModel"></td>
+            <td><input type="radio" value="1" name="recommend" [(ngModel)]="review.recommend" #recommend="ngModel"></td>
+          </tr>
+        </table>
+        <h4>Comment</h4>
+        <textarea rows="2" name="comment" [(ngModel)]="review.comment" #comment="ngModel"> </textarea>
+        <div>
+          <button type="submit" class="btn btn-primary">Send Feedback</button>&nbsp;
+          <button type="button" class="btn btn-warning" (click)="goBack()">Back</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

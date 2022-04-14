@@ -1,0 +1,35 @@
+<app-userdashboard></app-userdashboard>
+<div class="container">
+  <h2>Review List</h2>
+  <p></p>            
+  <table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>Overall Experience</th>
+        <th>Offer</th>
+        <th>Timeliness</th>
+        <th>Customer Support</th>
+        <th>Recommend To Others</th>
+        <th>Comment</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{review.id}}</td>
+        <td>{{review.overallExperience}}</td>
+        <td>{{review.offer}}</td>
+        <td>{{review.timeliness}}</td>
+        <td>{{review.customerSupport}}</td>
+        <td>{{review.recommend}}</td>
+        <td>{{review.comment}}</td>
+        <td>
+            <button type="button" class="btn btn-primary" (click)="edit(review.id)">Edit</button>&nbsp;
+            <button type="button" class="btn btn-danger"  (click)="goTodelete(review.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+ 
+</div>
