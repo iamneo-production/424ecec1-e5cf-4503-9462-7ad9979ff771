@@ -1,0 +1,40 @@
+<app-userdashboard></app-userdashboard>
+<div class="img">
+    <img [src]="myimage" style="height:721px;width:100%;">
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>Booking</h1>
+                    <h4>Confirm Booking</h4>
+                </div>
+                <form #bookingForm="ngForm" (ngSubmit)="book()">
+                    <div class="form-group">
+                        <label for="id">User Reference Id:</label>
+                        <input type="text" class="form-control" name="userreferenceId" required [(ngModel)]="booking.userreferenceId" disabled [value]="this.booking.userreferenceId">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Vehicle Reference Id:</label>
+                        <input type="text" class="form-control" name="vehiclereferenceId" required [(ngModel)]="booking.vehiclereferenceId" disabled [value]="this.booking.vehiclereferenceId">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Full Name</label>
+                        <input type="text" class="form-control" name="fullName" required [(ngModel)]="booking.fullName" disabled [value]="passenger.fullName">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="id">Price</label>
+                        <input type="text" class="form-control" name="cost" required [(ngModel)]="booking.cost" disabled [value]="this.booking.cost">
+                    </div><br>
+                    <div>
+                        <label>Date</label>
+                        <input type="text" name="bookingDate" class="form-control" [(ngModel)]="booking.bookingDate" disabled [value]="this.booking.bookingDate">
+                    </div><br>
+                      <button type="submit" class="btn btn-success" (click)="book()">Proceed for Payment</button>&nbsp;
+                      <button type="submit" class="btn btn-warning" (click)="goBack()">Back</button>
+                </form>
+            </div>
+          </div>
+      </div>
+  </div>

@@ -1,0 +1,30 @@
+<app-userdashboard></app-userdashboard>
+<div class="container">
+    <h2>Booking List</h2>
+    <p></p>            
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>User Reference</th>
+          <th>Vehicle Reference</th>
+          <th>Full Name</th>
+          <th>Booking Date</th>
+          <th>Cost</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookinglist" >
+          <td>{{booking.id}}</td>
+          <td>{{booking.userreferenceId}}</td>
+          <td>{{booking.vehiclereferenceId}}</td>
+          <td>{{booking.fullName}}</td>
+          <td>{{booking.bookingDate}}</td>
+          <td>{{booking.cost}}</td>
+          <td>
+            <button type="button" class="btn btn-danger"(click)="goToDeleteBooking(booking.id)">Delete Booking</button>&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
