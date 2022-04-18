@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReviewmanagementComponent } from './reviewmanagement/reviewmanagement.component';
-import { EditreviewComponent } from './editreview/editreview.component';
-import { AdminreviewlistComponent } from './adminreviewlist/adminreviewlist.component';
-import { UserreviewlistComponent } from './userreviewlist/userreviewlist.component';
+import { BookingComponent } from './booking/booking.component';
+import { BookinglistComponent } from './bookinglist/bookinglist.component';
+import { UserbookinglistComponent } from './userbookinglist/userbookinglist.component';
+import { VehiclebookinglistComponent } from './vehiclebookinglist/vehiclebookinglist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ReviewmanagementComponent,
-    EditreviewComponent,
-    AdminreviewlistComponent,
-    UserreviewlistComponent
+    BookingComponent,
+    BookinglistComponent,
+    UserbookinglistComponent,
+    VehiclebookinglistComponent
   ],
   imports: [
     BrowserModule,
