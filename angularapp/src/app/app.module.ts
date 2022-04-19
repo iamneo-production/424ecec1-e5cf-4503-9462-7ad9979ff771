@@ -2,6 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+======
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
 import { BookinglistComponent } from './bookinglist/bookinglist.component';
@@ -15,6 +22,7 @@ import { VehiclebookinglistComponent } from './vehiclebookinglist/vehiclebooking
     BookinglistComponent,
     UserbookinglistComponent,
     VehiclebookinglistComponent
+
   ],
   imports: [
     BrowserModule,
