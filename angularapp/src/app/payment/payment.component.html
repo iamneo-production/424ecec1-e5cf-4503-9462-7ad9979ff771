@@ -1,0 +1,115 @@
+<div class="img">
+    <img [src]="myimage" style="height:721px;width:100%;">
+</div>
+<div class="container">
+    <div class="container py-5">
+        <div class="row mb-4">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1>Payment Forms</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="card ">
+                    <div class="card-header">
+                        <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+
+                            <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                                <li class="nav-item"> <a data-toggle="pill" class="nav-link active "> <i
+                                            class="fas fa-credit-card mr-2"></i> Credit Card
+                                    </a> </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div id="credit-card" class="tab-pane fade show active pt-3">
+                                <form #paymentform="ngForm">
+                                    <div class="form-group"> <label for="username">
+                                            <h6>Card Owner</h6>
+                                        </label> <input type="text" class="form-control " placeholder="Card Owner Name" name="card" required (ngModel)="card" #card="ngModel" pattern="^(?=.{3,15}$)(?![_.])(?!.*[_.]{2})[a-zA-Z\s]+(?<![_.])$"
+                                            [class.is-invalid]="card.invalid && card.touched">
+                                        <div *ngIf="card.errors && (card.invalid && card.touched)">
+                                            <small class="text-danger" *ngIf="card.errors?.['required']">*Name is Required!</small>
+                                            <small class="text-danger" *ngIf="card.errors?.['pattern']">*Enter valid Name</small>
+                                        </div></div>
+                                        <div class="form-group"> <label for="cardNumber">
+                                                <h6>Card number</h6>
+                                            </label>
+                                            <div class="input-group"> <input type="text" name="cardNumber"
+                                                    placeholder="Valid card number" class="form-control " required
+                                                    name="cardn" (ngModel)="cardn" #cardn="ngModel"
+                                                    pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$">
+                                                <div *ngIf="cardn.errors && (cardn.invalid && cardn.touched)">
+                                                    <small class="text-danger"
+                                                        *ngIf="cardn.errors?.['required']">*Card Number is
+                                                        Required!</small>
+                                                    <small class="text-danger" *ngIf="cardn.errors?.['pattern']">*Enter
+                                                        valid Card Number</small>
+                                                </div>
+                                                <div class="input-group-append"> <span
+                                                        class="input-group-text text-muted">
+                                                        <i class="fab fa-cc-visa mx-1"></i> <i
+                                                            class="fab fa-cc-mastercard mx-1"></i> <i
+                                                            class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="form-group"> <label><span class="hidden-xs">
+                                                            <h6>Expiration Date</h6>
+                                                        </span></label>
+                                                    <div class="input-group"> 
+                                                            <input type="number" placeholder="MM" name="mon" class="form-control" required (ngModel)="mon" #mon="ngModel" pattern="^(0?[1-9]|1[012])$"> 
+                                                            <div *ngIf="mon.errors && (mon.invalid && mon.touched)">
+                                                                <small class="text-danger"
+                                                                    *ngIf="mon.errors?.['required']">*Month is
+                                                                    Required!</small>
+                                                                <small class="text-danger" *ngIf="mon.errors?.['pattern']">*Enter
+                                                                    valid Month</small>
+                                                            </div>
+                                                            <input type="number" placeholder="YY" name="yr" class="form-control" required (ngModel)="yr" #yr="ngModel" pattern="^(0[1-9]|1[0-2]|[1-9])\/(1[4-9]|[2-9][0-9]|20[1-9][1-9])$">
+                                                            <div *ngIf="yr.errors && (yr.invalid && yr.touched)">
+                                                                <small class="text-danger"
+                                                                    *ngIf="yr.errors?.['required']">*Year is
+                                                                    Required!</small>
+                                                                <small class="text-danger" *ngIf="mon.errors?.['pattern']">*Enter
+                                                                    valid Year</small>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group mb-4"> <label data-toggle="tooltip"
+                                                        title="Three digit CV code on the back of your card">
+                                                        <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                                    </label> <input type="text" required class="form-control"  required name="cvv" (ngModel)="cvv" #cvv="ngModel" pattern="([0-9]{3})"> </div>
+                                                    <div *ngIf="cvv.errors && (cvv.invalid && cvv.touched)">
+                                                        <small class="text-danger"
+                                                            *ngIf="cvv.errors?.['required']">*CVV Number is
+                                                            Required!</small>
+                                                        <small class="text-danger" *ngIf="cvv.errors?.['pattern']">*Enter
+                                                            valid CVV Number</small>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label
+                                                style="font-size: large;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Amount
+                                                to Be Paid</label>&nbsp;
+                                            <input type="text" [value]="this.booking.cost" disabled>
+                                        </div>
+                                        <button type="button" [disabled]="!paymentform.valid"
+                                            class="btn btn-primary shadow-sm" (click)="addBooking()"> Confirm
+                                            Payment</button>&nbsp;
+                                        <button type="button" class="btn btn-danger shadow-sm"
+                                            (click)="cancel()">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
