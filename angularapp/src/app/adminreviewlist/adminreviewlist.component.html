@@ -1,0 +1,30 @@
+<app-admin-dashboard></app-admin-dashboard>
+<div class="container">
+  <h2>Review List</h2>
+  <p></p>            
+  <table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>Overall Experience</th>
+        <th>Offer</th>
+        <th>Timeliness</th>
+        <th>Customer Support</th>
+        <th>Recommend To Others</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let review of reviewlist">
+        <td>{{review.id}}</td>
+        <td>{{review.overallExperience}}</td>
+        <td>{{review.offer}}</td>
+        <td>{{review.timeliness}}</td>
+        <td>{{review.customerSupport}}</td>
+        <td>{{review.recommend}}</td>
+        <td>{{review.comment}}</td>
+      </tr>
+    </tbody>
+  </table>
+ 
+</div>

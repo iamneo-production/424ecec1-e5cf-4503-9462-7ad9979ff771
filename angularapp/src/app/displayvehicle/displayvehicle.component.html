@@ -1,0 +1,40 @@
+<app-userdashboard></app-userdashboard>
+<div class="container">
+    <h2>Vehicle List</h2>
+    <p></p>            
+    <table class="table table-success table-striped">
+      <thead>
+        <tr>
+          <th>Vehicle ID</th>
+          <th>Vehicle Name</th>
+          <th>Date</th>
+          <th>Source HUB</th>
+          <th>Destination HUB</th>
+          <th>From-To</th>
+          <th>Departure Time</th>
+          <th>Price Per Head</th>
+          <th>Capacity</th>
+          <th>Desc</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of _vehiclelist">
+          <td>{{vehicle.id}}</td>
+          <td>{{vehicle.name}}</td>
+          <td>{{vehicle.date}}</td>
+          <td>{{vehicle.source}}</td>
+          <td>{{vehicle.destination}}</td>
+          <td>{{vehicle.sour_dest}}</td>
+          <td>{{vehicle.time}}</td>
+          <td>{{vehicle.price}}</td>
+          <td>{{vehicle.capacity}}</td>
+          <td>{{vehicle.desc}}</td>
+          <td>
+              <button type="button" class="btn btn-success"(click)="goToBookVehicle(vehicle.id)">Book Flight</button>&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+  </div>

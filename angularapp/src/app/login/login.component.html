@@ -1,29 +1,32 @@
+<div class="img">
+  <img [src]="myimage" style="height:721px;width:100%;">
+</div>
 <div class="container">
-  <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-            <div class="text-center">
-                <h1>Login</h1>
-                <h6>Please enter email & password!!</h6>
-            </div>
-            <form #loginForm="ngForm" (ngSubmit)="loginUser()">
-              <small class="text-danger">{{msg}}</small>
-                  <div class="form-group" >
-                    <label for="exmapleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" placeholder="Enter Email"  name="email" [(ngModel)]="user.email" required #email="ngModel"
-                    [class.is-invalid]="email.invalid && email.touched"> 
-                   <small class="text-danger" [class.d-none]="email.valid || email.untouched">*Email is Required Field!</small>
-                  </div><br>
-                  <div class="form-group"></div>
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="user.password" required #password="ngModel"
-                    [class.is-invalid]="password.invalid && password.touched">
-                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">*Password is Required!</small>
-                  </div><br>
-                  <button type="submit"  class="btn btn-primary">Login</button> 
-            </form>
-            <a style="color:#fff; margin-top: 10px"routerLink="/signup">New User? Click to Signup!!</a>
+    <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+              <div class="text-center">
+                  <h1>Login</h1>
+                  <h6>Please enter email & password!!</h6>
+              </div>
+              <form #loginForm="ngForm" (ngSubmit)="loginUser()">
+                <small class="text-danger">{{msg}}</small>
+                    <div class="form-group" >
+                      <label for="exmapleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" placeholder="Enter Email"  name="email" [(ngModel)]="user.email" required #email="ngModel"
+                      [class.is-invalid]="email.invalid && email.touched"> 
+                     <small class="text-danger" [class.d-none]="email.valid || email.untouched">*Email is Required Field!</small>
+                    </div><br>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="user.password" required #password="ngModel"
+                      [class.is-invalid]="password.invalid && password.touched">
+                      <small class="text-danger" [class.d-none]="password.valid || password.untouched">*Password is Required!</small>
+                    </div><br>
+                    <button type="submit"  class="btn btn-primary">Login</button> 
+              </form>
+              <a style="color:#fff; margin-top: 10px"routerLink="/signup">New User? Click to Signup!!</a>
+          </div>
         </div>
-      </div>
-  </div>
+    </div>
 </div>
