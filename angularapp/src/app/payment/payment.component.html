@@ -66,13 +66,13 @@
                                                                 <small class="text-danger" *ngIf="mon.errors?.['pattern']">*Enter
                                                                     valid Month</small>
                                                             </div>
-                                                            <input type="number" placeholder="YY" name="yr" class="form-control" required (ngModel)="yr" #yr="ngModel" pattern="^(0[1-9]|1[0-2]|[1-9])\/(1[4-9]|[2-9][0-9]|20[1-9][1-9])$">
+                                                            <input type="number" placeholder="YY" name="yr" class="form-control" required (ngModel)="yr" #yr="ngModel">
                                                             <div *ngIf="yr.errors && (yr.invalid && yr.touched)">
+                                                              
                                                                 <small class="text-danger"
                                                                     *ngIf="yr.errors?.['required']">*Year is
                                                                     Required!</small>
-                                                                <small class="text-danger" *ngIf="mon.errors?.['pattern']">*Enter
-                                                                    valid Year</small>
+                                                               
                                                             </div>
                                                     </div>
                                                 </div>
